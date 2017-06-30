@@ -1,11 +1,8 @@
 var urlencode = require('urlencode');
 var requestify = require('requestify');
-
 const lib = require('lib')({token: process.env.STDLIB_TOKEN});
+
 /**
-*
-*   See https://api.slack.com/slash-commands for more details.
-*
 * @param {string} user The user id of the user that invoked this command (name is usable as well)
 * @param {string} channel The channel id the command was executed in (name is usable as well)
 * @param {string} text The text contents of the command
@@ -19,10 +16,13 @@ module.exports = (user, channel, text = '', command = {}, botToken = null, callb
   requestify.get('https://api.scryfall.com/cards/search?q=' + encodedSearch)
     .then(function(response) {
       var body = response.body;
-      //var result = JSON.parse(body);
+      var result = JSON.parse(body);
+      var firstTen = result.data.slice(0,10).map(function(card) { return card.name; } );
+      var formattedFirstTen = firstTen.join('\n');
+
       callback(null, {
         response_type: 'in_channel',
-        text: `Found ${JSON.parse(body).total_cards} cards matching ${text}`
+        text: `Found ${result.total_cards} cards matching ${text}.\n${formattedFirstTen}`
       });
     })
     .fail(function(response) {
