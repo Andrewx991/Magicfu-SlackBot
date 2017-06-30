@@ -5,8 +5,8 @@ Built with Slack, Node.js, api.scryfall.com, and stdlib.com functions as a servi
 
 # Notes
 
-env.json - File excluded b/c api tokens
-.stdlib - File excluded b/c api tokens
+* env.json - File excluded b/c api tokens
+* .stdlib - File excluded b/c api tokens
 
 # Getting set up
 1. Make an account here: https://stdlib.com
