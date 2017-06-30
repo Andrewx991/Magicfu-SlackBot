@@ -7,3 +7,13 @@ Built with Slack, Node.js, api.scryfall.com, and stdlib.com functions as a servi
 
 env.json - File excluded b/c api tokens
 .stdlib - File excluded b/c api tokens
+
+# Getting set up
+Make an account here: https://stdlib.com
+`npm install lib.cli -g`
+`git clone` (this repo)
+`cd` to repo
+`lib init`
+(todo: not sure at this point what someone else might need)
+`lib up dev` (this deploys to stdlib)
+[And see here for hooking up to slack.](https://medium.com/slack-developer-blog/build-a-serverless-slack-bot-in-9-minutes-with-node-js-and-stdlib-b993cfa15358)
